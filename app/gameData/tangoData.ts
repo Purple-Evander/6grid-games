@@ -23,8 +23,8 @@ export const gameName = 'Tango';
 //     ['_', 'S', 'S', 'M', 'M', 'S'],
 //   ];
 
-export const initialBoard: string[][] = initialBoards[0];
-export const constraintPairs: string[][] = constraintPairsSet[0];
+export const initialBoard: string[][] = initialBoards[2];
+export const constraintPairs: string[][] = constraintPairsSet[2];
   
 
  // List of constrained adjacent cell pairs with their relationships ('=' or '*')

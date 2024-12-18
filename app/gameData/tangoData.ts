@@ -267,8 +267,8 @@ export const gameRules=(board:string[][]):void=>{
 export const renderCellContent = (cell: string): React.ReactNode => {
   const elements:{[key: string]:()=>React.ReactNode} = {
     _: () => React.createElement('span', { className: 'text-gray-500 text-3xl' }, '..'),
-    S: () => React.createElement('img', { src: './sun-icon.PNG', alt: 'Sun', className: 'w-12 h-12' }),
-    M: () => React.createElement('img', { src: './moon-icon.PNG', alt: 'Moon', className: 'w-12 h-12' }),
+    S: () => React.createElement('img', { src: './sun-icon.png', alt: 'Sun', className: 'w-12 h-12' }),
+    M: () => React.createElement('img', { src: './moon-icon.png', alt: 'Moon', className: 'w-12 h-12' }),
   };
 
   return elements[cell]?.() || null;

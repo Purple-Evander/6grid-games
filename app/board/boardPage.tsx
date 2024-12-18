@@ -122,7 +122,7 @@ const Board=()=>{
         {/* Left Image */}
         {isWin?(
           <img
-          src="./win.WEBP"
+          src="./win.webp"
           alt="Celebration GIF"
           className="p-5 rounded-lg shadow-lg" 
           style={{marginLeft:'100px', width:'550px', maxWidth:'550px'}} // Adjust size as needed
@@ -131,7 +131,7 @@ const Board=()=>{
           <> 
           <h1 className="text-4xl font-semibold text-center text-gray-700 mt-4 mb-4" style={{marginTop:'50px', marginBottom:'-100px', marginLeft:'50px'}}>{game} Rules</h1>
           <img
-            src= {`./${game}-rules.PNG`}   // `/${game}-rules.png`
+            src= {`./${game}-rules.png`}   // `/${game}-rules.png`
             alt="Game Rules"
             className="p-5 rounded-lg shadow-lg"
             style={{

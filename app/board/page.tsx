@@ -2,13 +2,7 @@
 'use client';
 
 import React, {useState, useEffect} from 'react';
-//import {gameExclusiveData, values, resetViolations, violations, initialBoard, gameRules, renderCellContent, boardOverlay, boardCellColor } from './tangoData'; //importing all game logic functions for tango
-//import {gameExclusiveData, values, resetViolations, violations, initialBoard, gameRules, renderCellContent, boardOverlay, boardCellColor} from './sudokuData';
 import games from '../gameData/gameExporter';
-import { initialBoards } from '../gameData/sudokuBoards';
-//import {initialBoard, constraintPairs} from './boardData';
-
-//const values = ['_','S','M']; //states: empty(_), Sun(S), Moon(M)
 
 const Board=()=>{
   
@@ -72,12 +66,7 @@ const Board=()=>{
       resetViolations(); //clears previos violations
 
       currentGame.gameRules(updatedBoard);// gets the necessary game rules function
-      // checkRowColDuplicatess(updatedBoard);
-      // checkRegionDuplicatess(updatedBoard);
 
-      //checkAdjacencyConstraints(updatedBoard,constraintPairs) // checks violation for contraint cell pairs
-      //moreThanTwo(updatedBoard); //checks for violations(more than two consecutive cells)
-      //checkEqualSunsAndMoons(updatedBoard); //checks the row-fill and column-fill violations
       setBoard(updatedBoard); //updating the board state
     }
     
@@ -125,7 +114,7 @@ const Board=()=>{
           <> 
           <h1 className="text-4xl font-semibold text-center text-gray-700 mt-4 mb-4" style={{marginTop:'50px', marginBottom:'-100px', marginLeft:'50px'}}>{game} Rules</h1>
           <img
-            src= {`/${game}-rules.png`}   // "/tango-rules.png" | `/${game}-rules.png`
+            src= {`/${game}-rules.png`}   // `/${game}-rules.png`
             alt="Game Rules"
             className="p-5 rounded-lg shadow-lg"
             style={{

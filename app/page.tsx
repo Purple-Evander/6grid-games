@@ -1,4 +1,4 @@
-import Board from "./board/page";
+import Board from "./board/boardPage";
 
 export default function Home() {
   return (

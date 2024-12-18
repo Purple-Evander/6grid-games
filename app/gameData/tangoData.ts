@@ -1,5 +1,5 @@
 import React from 'react';
-import {violations, addViolation } from '../board/page';
+import {violations, addViolation } from '../board/boardPage';
 import {initialBoards, constraintPairsSet} from './tangoBoards';
 
 export const gameName = 'Tango';

@@ -7,7 +7,7 @@ export const gameName = 'Sudoku';
 
 
 
-export const initialBoard: string[][] = initialBoards[1]
+export const initialBoard: string[][] = initialBoards[2]
 
 //regions
 const L1:[number,number][]=[[0,0],[0,1],[0,2], 

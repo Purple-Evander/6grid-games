@@ -91,7 +91,24 @@ const Board=()=>{
   }, [board, violations]);  // Check win condition whenever board or violations change
 
 
- 
+ //deployment fix
+ useEffect(() => {
+  // Ensure this runs only in the browser
+  if (typeof document !== 'undefined') {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes blink-green {
+        60% { background-color: #8CBA80; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Clean up the style on unmount
+    return () => {
+      document.head.removeChild(style);
+    };
+  }
+}, []);
 
  
 
@@ -235,34 +252,27 @@ const Board=()=>{
                 })}
               </div>
             ))}
-          </div>               
-
-          {/* Render board overlay elements */}
-          
-          
-          
+          </div>                   
         </div>
       </div>
     </div>
-  );
-
-  
+  ); 
   
   
 };
 
-
-
-// blinking animation CSS
-const style = document.createElement('style');
-style.innerHTML = `
-  @keyframes blink-green {
-    60% { background-color: #8CBA80; }
-  }
-`;
-document.head.appendChild(style);
-    
 export default Board;
+
+// // blinking animation CSS
+// const style = document.createElement('style');
+// style.innerHTML = `
+//   @keyframes blink-green {
+//     60% { background-color: #8CBA80; }
+//   }
+// `;
+// document.head.appendChild(style);
+    
+// export default Board;
 
 /*
 

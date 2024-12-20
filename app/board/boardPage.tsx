@@ -185,7 +185,7 @@ const Board=()=>{
               fontSize: '16px',
             }} 
           >
-            Next Board 
+            Next Challenge 
           </button>
           {/* Switch Game Button */}
           <button

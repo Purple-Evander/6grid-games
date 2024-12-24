@@ -1,5 +1,5 @@
 import React from 'react';
-import {violations, addViolation } from '../board/boardPage';
+import {violations, addViolation } from '../board/boardPage1';
 import {initialBoards, constraintPairsSet} from './tangoBoards';
 
 export const gameName = 'Tango';
@@ -23,19 +23,16 @@ export const gameName = 'Tango';
 //     ['_', 'S', 'S', 'M', 'M', 'S'],
 //   ];
 
-export const initialBoard: string[][] = initialBoards[2];
-export const constraintPairs: string[][] = constraintPairsSet[2];
+
+let initialBoard: string[][] = initialBoards[0];
+let constraintPairs: string[][] = constraintPairsSet[0];
+
+ export const getInitialBoard = (boardIndex:number):string[][] => {console.log(initialBoards[boardIndex]); return initialBoards[boardIndex]};
+//  export const setInitialBoard = (boardIndex: number) => {
+//   initialBoard = initialBoards[boardIndex];
+// };
   
 
- // List of constrained adjacent cell pairs with their relationships ('=' or '*')
-// export const constraintPairs: string[][] = [
-//     ['=', '=', '_', '_', '_', '_'],
-//     ['_', '_', '_', '_', '_', '_'],
-//     ['_', '_', '_', '_', '_', '_'],
-//     ['_', '_', '_', '_', '*', '*'],
-//     ['_', '_', '_', '=', '=', '_'],
-//     ['_', '_', '_', '_', '_', '_'],
-//   ];
 
 
   
@@ -275,13 +272,54 @@ export const renderCellContent = (cell: string): React.ReactNode => {
 };
 
 export const gameExclusiveData={
-  gameName, 
+  initialBoard, gameName
 };
 
-export const boardOverlay=()=>{
-  return renderConstraints(constraintPairs);
+
+
+export const boardOverlay=(boardIndex:number)=>{
+  return renderConstraints(constraintPairsSet[boardIndex]);
 };
-export const boardCellColor=(rowIdx:number, colIdx:number)=>{
+
+type BackgroundColor = { backgroundColor: string } | null; //explicitely mention return type to avoid error type 'never'
+export const boardCellColor=(rowIdx:number, colIdx:number):BackgroundColor=>{
   return null;
+};
+
+
+
+//parameter passed through boardSwitcher function
+type ExclusiveCurrentBoardData={
+  initialBoard:string[][],
+};
+
+export const boardSwitcher = <T extends ExclusiveCurrentBoardData>(board: string[][], boardData: T)  => {
+  console.log('current boardData.initialBoard:', boardData.initialBoard);
+  console.log('available Boards:', initialBoards);
+
+  const areBoardsEqual = (board1: string[][], board2: string[][]): boolean => {
+    if (board1.length !== board2.length) return false;
+    return board1.every((row, rowIndex) =>
+      row.length === board2[rowIndex].length &&
+      row.every((cell, cellIndex) => cell === board2[rowIndex][cellIndex])
+    );
+  };
+
+  const currentIndex = initialBoards.findIndex((b) => {
+    console.log('Comparing:');
+    console.log('Board in initialBoards:', b);
+    console.log('boardData.initialBoard:', boardData.initialBoard);
+    return areBoardsEqual(b, board);
+  });
+
+  console.log('current board index:', currentIndex);
+
+  const nextIndex = (currentIndex + 1) % initialBoards.length;
+  console.log('next index: ',nextIndex);
+  // Ensure that the next board is a 2D array of strings
+  const nextBoard: string[][] = initialBoards[nextIndex];
+
+  console.log('next Board: ',nextBoard);
+  return { ...boardData, nextIndex, nextBoard };
 };
 

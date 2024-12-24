@@ -4,7 +4,9 @@ import * as sudoku from './sudokuData';
 import * as tango from './tangoData';
 // Import more games here as needed
 
+
+
 // Add all games to an array
-const games = [tango, sudoku];
+const games= [tango, sudoku];
 
 export default games;

@@ -19,7 +19,7 @@
 //   ];
 
 
-export const initialBoards=[
+export const initialBoards:string[][][]=[
     [
         ['S', 'S', 'M', 'M', 'S', 'M'],
         ['M', 'M', 'S', 'S', 'M', 'S'],
@@ -46,7 +46,7 @@ export const initialBoards=[
     ]
 ];
 
-export const constraintPairsSet=[
+export const constraintPairsSet:string[][][]=[
     [
         ['=', '=', '_', '_', '_', '_'],
         ['_', '_', '_', '_', '_', '_'],

@@ -232,7 +232,7 @@ const Board=()=>{
                   fontSize: '16px',
                 }} 
               >
-                Next Challenge 
+                New Challenge 
               </button>
               {/* Switch Game Button */}
               <button
